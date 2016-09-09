@@ -51,7 +51,8 @@
         <version.org.hibernate.search>4.6.0.Final-redhat-2</version.org.hibernate.search>
         <version.org.infinispan>6.2.0.Final-redhat-4</version.org.infinispan>
         <version.org.jboss.teiid.quickstart>2.1.0.redhat-62-7</version.org.jboss.teiid.quickstart> <!-- 6.0.2.Final -->
-                
+        <version.org.infinispan.6>6.4.0.Final-redhat-4</version.org.infinispan.6>
+        
         <version.org.jboss.bom.jboss-javaee-6.0-with-tools>6.4.3.GA</version.org.jboss.bom.jboss-javaee-6.0-with-tools>
 
 		<jdg.slot>jdg-6.6</jdg.slot>
