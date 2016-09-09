@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+  <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
+  <classpathentry kind="output" path="target/classes"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+  <classpathentry kind="var" path="M2_REPO/org/jboss/teiid/teiid/8.7.1.6_2-redhat-6/teiid-8.7.1.6_2-redhat-6-jdbc.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jboss/teiid/teiid-client-jdk15/8.7.1.6_2-redhat-6/teiid-client-jdk15-8.7.1.6_2-redhat-6.jar" sourcepath="M2_REPO/org/jboss/teiid/teiid-client-jdk15/8.7.1.6_2-redhat-6/teiid-client-jdk15-8.7.1.6_2-redhat-6-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jboss/teiid/teiid-common-core/8.7.1.6_2-redhat-6/teiid-common-core-8.7.1.6_2-redhat-6.jar" sourcepath="M2_REPO/org/jboss/teiid/teiid-common-core/8.7.1.6_2-redhat-6/teiid-common-core-8.7.1.6_2-redhat-6-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jboss/teiid/teiid-client/8.7.1.6_2-redhat-6/teiid-client-8.7.1.6_2-redhat-6.jar" sourcepath="M2_REPO/org/jboss/teiid/teiid-client/8.7.1.6_2-redhat-6/teiid-client-8.7.1.6_2-redhat-6-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/net/sf/retrotranslator/retrotranslator-runtime/1.2.9/retrotranslator-runtime-1.2.9.jar"/>
+  <classpathentry kind="var" path="M2_REPO/backport-util-concurrent/backport-util-concurrent/3.1/backport-util-concurrent-3.1.jar" sourcepath="M2_REPO/backport-util-concurrent/backport-util-concurrent/3.1/backport-util-concurrent-3.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/net/sf/retrotranslator/retrotranslator-transformer/1.2.9/retrotranslator-transformer-1.2.9.jar"/>
+</classpath>

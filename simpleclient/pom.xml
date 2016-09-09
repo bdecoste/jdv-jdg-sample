@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<parent>
+		<artifactId>teiid-quickstart-parent</artifactId>
+		<groupId>org.jboss.teiid.quickstart</groupId>
+		<version>2.1.0.redhat-62-7</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>simpleclient</artifactId>
+
+	<name>SimpleClient</name>
+	<description>The simpleclient demonstrates making connections to Teiid through both, a Driver and a DataSource</description>
+
+	<dependencies>
+		<dependency>
+            <groupId>org.jboss.teiid</groupId>
+            <artifactId>teiid</artifactId>
+            <classifier>jdbc</classifier>
+		</dependency>
+		<dependency>
+            <groupId>org.jboss.teiid</groupId>
+            <artifactId>teiid-common-core</artifactId>
+ 		</dependency>
+		<dependency>
+            <groupId>org.jboss.teiid</groupId>
+            <artifactId>teiid-client</artifactId>
+ 		</dependency>
+	</dependencies>
+
+    <profiles>
+        <profile>
+            <id>defaultuser</id>
+            <activation>
+                <property>
+                    <name>vdb</name>
+                </property>
+            </activation>                     
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>${version.org.codehaus.mojo.exec.plugin}</version>
+                        <executions>
+                            <execution>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>java</goal>
+                                </goals>
+                                <configuration>
+                                    <mainClass>JDBCClient</mainClass>
+                                    <arguments>
+                                        <argument>${hostname}</argument>
+                                        <argument>${port}</argument>
+                                        <argument>${vdb}</argument>
+                                        <argument>${sql}</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>                
+                </plugins>
+            </build>
+        </profile>         
+    </profiles>
+</project>

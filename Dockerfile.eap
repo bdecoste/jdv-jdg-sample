@@ -1,0 +1,11 @@
+FROM scratch
+
+LABEL Name="jboss-jdv-6/jdv-sample-eap" \
+      Version="latest" \
+      Release="latest" \
+      Architecture="x86_64" 
+
+COPY injected-files /injected/injected-files
+COPY injected-eap-modules /injected/injected-modules
+COPY install-eap.sh /injected/install.sh
+COPY install-eap.properties /injected/install.properties

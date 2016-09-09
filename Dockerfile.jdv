@@ -1,0 +1,10 @@
+FROM scratch
+
+LABEL Name="jboss-jdv-6/jdv-sample-teiid" \
+      Version="latest" \
+      Release="latest" \
+      Architecture="x86_64" 
+
+COPY injected-teiid-modules /injected/injected-modules
+COPY install-teiid.sh /injected/install.sh
+COPY install-teiid.properties /injected/install.properties
