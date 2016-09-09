@@ -25,9 +25,7 @@
 	</licenses>
 
 	<modules>
-        <module>dynamicvdb-datafederation</module>
-        <module>hibernate-on-top-of-teiid</module>
-        <module>webservices-as-a-datasource</module>
+        <module>jdg-remote-cache</module>
         <module>simpleclient</module>
 	</modules>
 
