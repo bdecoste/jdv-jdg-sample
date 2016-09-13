@@ -7,4 +7,3 @@ LABEL Name="jboss-jdv-6/jdv-jdg-sample" \
 
 COPY install.sh /injected/install.sh
 COPY install.properties /injected/install.properties
-COPY injected-teiid-files /injected
