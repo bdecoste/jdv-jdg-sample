@@ -92,36 +92,36 @@
             "required": true
         },
         {
-            "description": "Password for teiidUser",
-            "name": "ADMINUSER_PASSWORD",
-            "value": "",
+            "description": "Username for Teiid user",
+            "name": "TEIID_USERNAME",
+            "value": "teiidUser",
             "required": false
         },
         {
-            "description": "Password for teiidUser",
-            "name": "TEIIDUSER_PASSWORD",
-            "value": "",
+            "description": "Password for JDV TEIID_USERNAME",
+            "name": "TEIID_PASSWORD",
+            "value": "P@ssword1",
+            "required": true
+        },
+        {
+            "description": "Username for ModeShape user",
+            "name": "MODESHAPE_USERNAME",
+            "value": "modeshapeUser",
             "required": false
         },
         {
-            "description": "Password for teiidUser",
-            "name": "DASHBOARDADMIN_PASSWORD",
-            "value": "",
-            "required": false
+            "description": "Password for JDV MODESHAPE_USERNAME",
+            "name": "MODESHAPE_PASSWORD",
+            "value": "P@ssword1",
+            "required": true
         },
         {
-            "description": "Password for teiidUser",
-            "name": "MODESHAPEUSER_PASSWORD",
-            "value": "",
-            "required": false
-        },
-         {
             "description": "Keystore file for jdbc secure transport",
             "name": "DATAVIRT_TRANSPORT_KEYSTORE",
             "value": "keystore.jks",
             "required": false
         },
-         {
+        {
             "description": "Alias for jdbc secure transport keystore",
             "name": "DATAVIRT_TRANSPORT_KEYSTORE_ALIAS",
             "value": "jboss",
@@ -754,20 +754,20 @@
                                         "value": "${JGROUPS_CLUSTER_PASSWORD}"
                                     },
                                     {
-                                        "name": "ADMINUSER_PASSWORD",
-                                        "value": "${ADMINUSER_PASSWORD}"
+                                        "name": "TEIID_USERNAME",
+                                        "value": "${TEIID_USERNAME}"
                                     },
                                     {
-                                        "name": "TEIIDUSER_PASSWORD",
-                                        "value": "${TEIIDUSER_PASSWORD}"
+                                        "name": "TEIID_PASSWORD",
+                                        "value": "${TEIID_PASSWORD}"
                                     },
                                     {
-                                        "name": "DASHBOARDADMIN_PASSWORD",
-                                        "value": "${DASHBOARDADMIN_PASSWORD}"
+                                        "name": "MODESHAPE_USERNAME",
+                                        "value": "${MODESHAPE_USERNAME}"
                                     },
                                     {
-                                        "name": "MODESHAPEUSER_PASSWORD",
-                                        "value": "${MODESHAPEUSER_PASSWORD}"
+                                        "name": "MODESHAPE_PASSWORD",
+                                        "value": "${MODESHAPE_PASSWORD}"
                                     },
                                     {
                                         "name": "DATAVIRT_TRANSPORT_KEYSTORE",
