@@ -114,24 +114,6 @@
             </plugin>
 
  
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<configuration>
-					<descriptors>
-						<descriptor>kits/jboss-as7-dist.xml</descriptor>
-					</descriptors>
-				</configuration>
-				<version>2.4.1</version>
-				<executions>
-					<execution>
-						<id>create-assemblies</id>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
 	
