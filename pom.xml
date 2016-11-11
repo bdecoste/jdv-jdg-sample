@@ -26,6 +26,7 @@
 
 	<modules>
         <module>jdg-remote-cache</module>
+        <module>jdg-remote-cache-materialization</module>
         <module>simpleclient</module>
 	</modules>
 

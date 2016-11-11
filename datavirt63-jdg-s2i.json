@@ -54,7 +54,7 @@
         {
             "description": "List of directories from which archives will be copied into the deployment folder.  If unspecified, all archives in /target will be copied.",
             "name": "ARTIFACT_DIR",
-            "value": "jdg-remote-cache/target",
+            "value": "jdg-remote-cache/target,jdg-remote-cache-materialization/target",
             "required": false
         },
         {
@@ -178,7 +178,7 @@
         {
             "description": "List of directories from which VDBS will be copied into the deployment folder.  If unspecified, all archives in source will be copied.",
             "name": "VDB_DIRS",
-            "value": "jdg-remote-cache/src/vdb",
+            "value": "jdg-remote-cache/src/vdb,jdg-remote-cache-materialization/src/vdb",
             "required": false
         }
     ],
