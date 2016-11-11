@@ -29,14 +29,14 @@
  		</dependency>
 	</dependencies>
 
-    <profiles>
+    <!--profiles>
         <profile>
             <id>defaultuser</id>
             <activation>
                 <property>
                     <name>vdb</name>
                 </property>
-            </activation>                     
+            </activation-->                     
             <build>
                 <plugins>
                     <plugin>
@@ -63,6 +63,6 @@
                     </plugin>                
                 </plugins>
             </build>
-        </profile>         
-    </profiles>
+        <!--/profile>         
+    </profiles-->
 </project>

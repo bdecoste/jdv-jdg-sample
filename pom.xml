@@ -56,7 +56,7 @@
         
         <version.org.jboss.bom.jboss-javaee-6.0-with-tools>6.4.3.GA</version.org.jboss.bom.jboss-javaee-6.0-with-tools>
 
-		<jdg.slot>jdg-6.6</jdg.slot>
+		<jdg.slot>jdg-6.5</jdg.slot>
 
 		<version.javax.enterprise>1.0.0.SP4-redhat-5</version.javax.enterprise>
 
