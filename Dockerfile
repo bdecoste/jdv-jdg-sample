@@ -7,5 +7,4 @@ LABEL Name="jboss-jdv-6/jdv-jdg-sample" \
 
 COPY injected-modules /injected/injected-modules
 COPY install.sh /injected/install.sh
-COPY install.properties /injected/install.properties
 
