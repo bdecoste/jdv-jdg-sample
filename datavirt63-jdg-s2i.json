@@ -166,7 +166,7 @@
         {
             "description": "The name of the cache to expose through this memcached connector (defaults to 'default')",
             "name": "MEMCACHED_CACHE",
-            "value": "default",
+            "value": "memcachedCache",
             "required": false
         },
         {
@@ -193,7 +193,7 @@
                 "name": "resourceadapters-secret"
             },
             "data": {
-                  "resourceadapters.properties": "I1JFU09VUkNFIEFEQVBURVJTClJFU09VUkNFX0FEQVBURVJTPUpERwoKSkRHX0lEPWluZmluaXNw\nYW5SZW1RU0RTTApKREdfTU9EVUxFX1NMT1Q9bWFpbgpKREdfTU9EVUxFX0lEPW9yZy5qYm9zcy50\nZWlpZC5yZXNvdXJjZS1hZGFwdGVyLmluZmluaXNwYW4uZHNsCkpER19DT05ORUNUSU9OX0NMQVNT\nPW9yZy50ZWlpZC5yZXNvdXJjZS5hZGFwdGVyLmluZmluaXNwYW4uZHNsLkluZmluaXNwYW5NYW5h\nZ2VkQ29ubmVjdGlvbkZhY3RvcnkKSkRHX0NPTk5FQ1RJT05fSk5EST1qYXZhOi9pbmZpbmlzcGFu\nUmVtb3RlRFNMCkpER19QUk9QRVJUWV9DYWNoZVR5cGVNYXA9ZGVmYXVsdDpvcmcuamJvc3MuYXMu\ncXVpY2tzdGFydHMuZGF0YWdyaWQuaG90cm9kLnF1ZXJ5LmRvbWFpbi5QZXJzb247aWQKSkRHX1BS\nT1BFUlRZX1Byb3RvYnVmRGVmaW5pdGlvbkZpbGU9cXVpY2tzdGFydC9hZGRyZXNzYm9vay5wcm90\nbwpKREdfUFJPUEVSVFlfTWVzc2FnZURlc2NyaXB0b3I9cXVpY2tzdGFydC5QZXJzb24KSkRHX1BS\nT1BFUlRZX01vZHVsZT1jb20uY2xpZW50LnF1aWNrc3RhcnQuYWRkcmVzc2Jvb2sucG9qb3MKSkRH\nX1BST1BFUlRZX01lc3NhZ2VNYXJzaGFsbGVycz1vcmcuamJvc3MuYXMucXVpY2tzdGFydHMuZGF0\nYWdyaWQuaG90cm9kLnF1ZXJ5LmRvbWFpbi5QZXJzb246b3JnLmpib3NzLmFzLnF1aWNrc3RhcnRz\nLmRhdGFncmlkLmhvdHJvZC5xdWVyeS5tYXJzaGFsbGVycy5QZXJzb25NYXJzaGFsbGVyCkpER19Q\nUk9QRVJUWV9SZW1vdGVTZXJ2ZXJMaXN0PSMjSE9UUk9EX1NFUlZJQ0VfSE9TVCMjOjExMzMzCg=="
+                  "resourceadapters.properties": "I1JFU09VUkNFIEFEQVBURVJTClJFU09VUkNFX0FEQVBURVJTPUpERwoKSkRHX0lEPWluZmluaXNw\nYW5SZW1RU0RTTApKREdfTU9EVUxFX1NMT1Q9bWFpbgpKREdfTU9EVUxFX0lEPW9yZy5qYm9zcy50\nZWlpZC5yZXNvdXJjZS1hZGFwdGVyLmluZmluaXNwYW4uZHNsCkpER19DT05ORUNUSU9OX0NMQVNT\nPW9yZy50ZWlpZC5yZXNvdXJjZS5hZGFwdGVyLmluZmluaXNwYW4uZHNsLkluZmluaXNwYW5NYW5h\nZ2VkQ29ubmVjdGlvbkZhY3RvcnkKSkRHX0NPTk5FQ1RJT05fSk5EST1qYXZhOi9pbmZpbmlzcGFu\nUmVtb3RlRFNMCkpER19QUk9QRVJUWV9DYWNoZVR5cGVNYXA9ZGVmYXVsdDpvcmcuamJvc3MuYXMu\ncXVpY2tzdGFydHMuZGF0YWdyaWQuaG90cm9kLnF1ZXJ5LmRvbWFpbi5QZXJzb247aWQKSkRHX1BS\nT1BFUlRZX1Byb3RvYnVmRGVmaW5pdGlvbkZpbGU9cXVpY2tzdGFydC9hZGRyZXNzYm9vay5wcm90\nbwpKREdfUFJPUEVSVFlfTWVzc2FnZURlc2NyaXB0b3I9cXVpY2tzdGFydC5QZXJzb24KSkRHX1BS\nT1BFUlRZX01vZHVsZT1jb20uY2xpZW50LnF1aWNrc3RhcnQuYWRkcmVzc2Jvb2sucG9qb3MKSkRH\nX1BST1BFUlRZX01lc3NhZ2VNYXJzaGFsbGVycz1vcmcuamJvc3MuYXMucXVpY2tzdGFydHMuZGF0\nYWdyaWQuaG90cm9kLnF1ZXJ5LmRvbWFpbi5QZXJzb246b3JnLmpib3NzLmFzLnF1aWNrc3RhcnRz\nLmRhdGFncmlkLmhvdHJvZC5xdWVyeS5tYXJzaGFsbGVycy5QZXJzb25NYXJzaGFsbGVyCkpER19Q\nUk9QRVJUWV9SZW1vdGVTZXJ2ZXJMaXN0PWRhdGF2aXJ0LWhvdHJvZC5kZW1vLnN2Yy5jbHVzdGVy\nLmxvY2FsOjExMzMzCg=="
             }
         },
         {
@@ -396,6 +396,16 @@
         {
             "kind": "ImageStream",
             "apiVersion": "v1",
+            "metadata": {
+                "name": "${APPLICATION_NAME}-jdg",
+                "labels": {
+                    "application": "${APPLICATION_NAME}jdg"
+                }
+            }
+        },
+        {
+            "kind": "ImageStream",
+            "apiVersion": "v1",
             "metadata": { 
                 "name": "jdv-jdg-extensions",
                 "labels": {
@@ -528,6 +538,64 @@
                     "to": {
                         "kind": "ImageStreamTag",
                         "name": "${APPLICATION_NAME}:latest"
+                    }
+                },
+                "triggers": [
+                    {
+                        "type": "GitHub",
+                        "github": {
+                            "secret": "${GITHUB_WEBHOOK_SECRET}"
+                        }
+                    },
+                    {
+                        "type": "Generic",
+                        "generic": {
+                            "secret": "${GENERIC_WEBHOOK_SECRET}"
+                        }
+                    },
+                    {
+                        "type": "ImageChange",
+                        "imageChange": {}
+                    },
+                    {
+                        "type": "ConfigChange"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "BuildConfig",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "${APPLICATION_NAME}-jdg",
+                "labels": {
+                    "application": "${APPLICATION_NAME}jdg"
+                }
+            },
+            "spec": {
+                "source": {
+                    "type": "Git",
+                    "git": {
+                        "uri": "http://github.com/bdecoste/jdv-jdg",
+                        "ref": ""
+                    },
+                    "contextDir": ""
+                },
+                "strategy": {
+                    "type": "Source",
+                    "sourceStrategy": {
+                        "forcePull": true,
+                        "from": {
+                            "kind": "ImageStreamTag",
+                            "namespace": "${IMAGE_STREAM_NAMESPACE}",
+                            "name": "jboss-datagrid65-openshift:1.2"
+                        }
+                    }
+                },
+                "output": {
+                    "to": {
+                        "kind": "ImageStreamTag",
+                        "name": "${APPLICATION_NAME}-jdg:latest"
                     }
                 },
                 "triggers": [
@@ -761,8 +829,7 @@
                             ],
                             "from": {
                                 "kind": "ImageStreamTag",
-                                "namespace": "${IMAGE_STREAM_NAMESPACE}",
-                                "name": "jboss-datagrid65-openshift:1.2"
+                                "name": "${APPLICATION_NAME}-jdg:latest"
                             }
                         }
                     },
