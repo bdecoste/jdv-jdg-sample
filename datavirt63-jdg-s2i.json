@@ -178,7 +178,7 @@
         {
             "description": "List of directories from which VDBS will be copied into the deployment folder.  If unspecified, all archives in source will be copied.",
             "name": "VDB_DIRS",
-            "value": "jdg-remote-cache/src/vdb,jdg-remote-cache-materialization/src/vdb",
+            "value": "jdg-remote-cache/src/vdb",
             "required": false
         }
     ],
