@@ -1,0 +1,5 @@
+org/jboss/as/quickstarts/datagrid/hotrod/query/domain/Person.class
+org/jboss/as/quickstarts/datagrid/hotrod/query/domain/Memo$Priority.class
+org/jboss/as/quickstarts/datagrid/hotrod/query/marshallers/PersonMarshaller.class
+org/jboss/as/quickstarts/datagrid/hotrod/query/AddressBookManager.class
+org/jboss/as/quickstarts/datagrid/hotrod/query/domain/Memo.class
