@@ -1,35 +1,15 @@
-#Created by buildmetadata-maven-plugin 1.5.2 ( SHA: 25e07c12 ) 
-#Fri Nov 11 15:03:17 PST 2016
+# Created by buildmetadata-maven-plugin 1.7.0 ( SHA: 6f444cae ) 
 build.artifactId=teiid-quickstart-parent
-build.copyright.year=2013-2016
-build.date=11.11.2016
-build.date.pattern=dd.MM.yyyy
 build.groupId=org.jboss.teiid.quickstart
-build.host.name=ose3x-master.example.com
 build.java.compiler=HotSpot 64-Bit Tiered Compilers
 build.java.runtime.name=OpenJDK Runtime Environment
 build.java.runtime.version=1.8.0_111-b15
 build.java.vendor=Oracle Corporation
 build.java.vm=OpenJDK 64-Bit Server VM
 build.maven.execution.cmdline=clean install
-build.maven.execution.goals=clean, install
-build.maven.execution.isRoot=true
-build.maven.execution.profile.active.central=settings.xml
-build.maven.execution.profile.active.disable-enforce-managed-deps-rule=pom
-build.maven.execution.profile.active.jboss-community-repository=settings.xml
-build.maven.execution.profile.active.jboss-ea=settings.xml
-build.maven.execution.profile.active.jboss-eap-repository=settings.xml
-build.maven.execution.profiles.active=disable-enforce-managed-deps-rule, central, jboss-eap-repository, jboss-community-repository, jboss-ea
-build.maven.execution.project=org.jboss.teiid.quickstart\:teiid-quickstart-parent\:pom\:2.1.0.redhat-62-7
 build.maven.version=3.0.5
-build.os.arch=amd64
-build.os.name=Linux
-build.os.version=3.10.0-513.el7.x86_64
-build.scmRevision.date=11.11.2016
-build.scmRevision.id=e98a0a1e38e5456c85c6e35101de7de86b49222a
+build.scmRevision.date=14.11.2016
+build.scmRevision.id=2266ad1c110dfc175e1518506176a55bc41bc0dc
 build.scmRevision.url=scm\:git\:git@github.com\:jboss-integration/jboss-integration-platform-bom.git/teiid-quickstart-parent
-build.timestamp.millis=1478905395433
-build.user=joe
-build.version=2.1.0.redhat-62-7
-build.version.full=2.1.0.redhat-62-7-20161111re98a0a1e38e5456c85c6e35101de7de86b49222a
-build.year=2016
+build.version=3.0.0.redhat-63-10
+build.version.full=3.0.0.redhat-63-10r2266ad1c110dfc175e1518506176a55bc41bc0dc

@@ -1,0 +1,16 @@
+package quickstart;
+
+/* @Indexed */
+message Person {
+
+   /* @IndexedField */
+   required string name = 1;
+
+   /* @IndexedField(index=true, store=false) */
+   required int32 id = 2;
+
+   /* @IndexedField */
+   optional string email = 3;
+
+
+}
