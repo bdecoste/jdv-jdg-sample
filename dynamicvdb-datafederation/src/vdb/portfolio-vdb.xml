@@ -41,7 +41,7 @@
          <!--
             This connector is defined to reference the H2 localDS" 
           -->
-        <source name="postgresql-connector" translator-name="translator-postgresql" connection-jndi-name="java:/account-ds"/>
+        <source name="postgresql-connector" translator-name="translator-postgresql" connection-jndi-name="java:/accounts-ds"/>
     </model>
     
    <model name="PersonalValuations">
