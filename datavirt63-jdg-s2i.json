@@ -60,7 +60,7 @@
         {
             "description": "Database JNDI name used by application to resolve the datasource, e.g. java:/jboss/datasources/postgresql",
             "name": "DB_JNDI",
-            "value": "java:/account-ds",
+            "value": "java:/accounts-ds",
             "required": false
         },
         {
