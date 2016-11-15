@@ -51,7 +51,7 @@
         <!--version.org.hibernate.search>4.5.0.Final</version.org.hibernate.search-->
         <version.org.infinispan.6>6.4.0.Final-redhat-4</version.org.infinispan.6>  
         <!-- JDG module slot to use  -->
-        <jdg.slot>jdg-6.6</jdg.slot>
+        <jdg.slot>jdg-6.5</jdg.slot>
         <version.org.hibernate.search>4.6.0.Final-redhat-2</version.org.hibernate.search>  
   		<version.net.jcip>1.0.0.redhat-7</version.net.jcip>
         <version.resteasy.client>3.0.16.Final</version.resteasy.client>
