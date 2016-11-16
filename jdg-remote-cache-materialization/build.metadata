@@ -1,5 +1,5 @@
 # Created by buildmetadata-maven-plugin 1.7.0 ( SHA: 6f444cae ) 
-build.artifactId=jdg-remote-cache
+build.artifactId=jdg-remote-cache-materialization
 build.groupId=org.jboss.teiid.quickstart
 build.java.compiler=HotSpot 64-Bit Tiered Compilers
 build.java.runtime.name=OpenJDK Runtime Environment
