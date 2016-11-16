@@ -17,7 +17,7 @@
 package org.jboss.as.quickstarts.datagrid.hotrod.query.domain;
 
 import java.util.List;
-import org.infinispan.protostream.annotations.ProtoField;
+//import org.infinispan.protostream.annotations.ProtoField;
 
 
 /**
@@ -25,11 +25,11 @@ import org.infinispan.protostream.annotations.ProtoField;
  */
 public class Person {
 
-   @ProtoField(number = 2, required = true)
+  // @ProtoField(number = 2, required = true)
    public String name;
-   @ProtoField(number = 1, required = true)
+  // @ProtoField(number = 1, required = true)
    public int id;
-   @ProtoField(number = 3)
+  // @ProtoField(number = 3)
    public String email;
  
 
