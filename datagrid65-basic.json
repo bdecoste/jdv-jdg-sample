@@ -308,6 +308,38 @@
                                         "value": "false"
                                     },
                                     {
+                                        "name": "ADDRESSBOOK_INDEXED_STRING_KEYED_JDBC_STORE_DATASOURCE",
+                                        "value": "java:jboss/datasources/ExampleDS"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_STRING_KEYED_JDBC_STORE_PASSIVATION",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_STRING_KEYED_JDBC_STORE_PRELOAD",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_STRING_KEYED_JDBC_STORE_PURGE",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_STRING_KEYED_TABLE_PREFIX",
+                                        "value": "JDG"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_STRING_KEYED_TABLE_ID_COLUMN",
+                                        "value": "id"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_STRING_KEYED_TABLE_DATA_COLUMN",
+                                        "value": "datum"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_STRING_KEYED_TABLE_TIMESTAMP_COLUMN",
+                                        "value": "version"
+                                    },
+                                    {
                                         "name": "ENCRYPTION_REQUIRE_SSL_CLIENT_AUTH",
                                         "value": "${ENCRYPTION_REQUIRE_SSL_CLIENT_AUTH}"
                                     },
