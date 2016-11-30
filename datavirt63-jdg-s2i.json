@@ -205,7 +205,7 @@
         {
             "description": "Comma-separated list of caches to configure.  By default, a distributed-cache, with a mode of SYNC will be configured for each entry.",
             "name": "CACHE_NAMES",
-            "value": "",
+            "value": "addressbook_indexed,addressbook,addressbook_indexed_mat,aliasCache",
             "required": false
         },
         {
@@ -988,20 +988,8 @@
                                         "value": "${JGROUPS_CLUSTER_PASSWORD}"
                                     },
                                     {
-                                        "name": "CACHE_NAMES",
-                                        "value": "addressbook_indexed,addressbook,addressbook_indexed_mat,aliasCache"
-                                    },
-                                     {
                                         "name": "ADDRESSBOOK_INDEXED_CACHE_START",
                                         "value": "EAGER"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_INDEXED_CACHE_INDEX",
-                                        "value": "ALL"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_INDEXED_INDEXING_PROPERTIES",
-                                        "value": "default.directory_provider=ram"
                                     },
                                     {
                                         "name": "ADDRESSBOOK_INDEXED_CACHE_INDEX",
@@ -1090,14 +1078,6 @@
                                     {
                                         "name": "ADDRESSBOOK_INDEXED_MAT_CACHE_START",
                                         "value": "EAGER"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_INDEXED_MAT_CACHE_INDEX",
-                                        "value": "ALL"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_INDEXED_MAT_INDEXING_PROPERTIES",
-                                        "value": "default.directory_provider=ram"
                                     },
                                     {
                                         "name": "ADDRESSBOOK_INDEXED_MAT_CACHE_INDEX",
