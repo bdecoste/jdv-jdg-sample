@@ -1,4 +1,4 @@
-FROM rhel7:7.3-released
+FROM rhel7:latest
 
 LABEL Name="jboss-jdv-6/jdv-jdg-sample" \
       Version="latest" \
