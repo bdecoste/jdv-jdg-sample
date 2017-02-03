@@ -211,7 +211,7 @@
         {
             "description": "Comma-separated list of caches to configure.  By default, a distributed-cache, with a mode of SYNC will be configured for each entry.",
             "name": "CACHE_NAMES",
-            "value": "",
+            "value": "addressbook,addressbook_staging,addressbook_alias",
             "required": false
         },
         {
@@ -374,7 +374,7 @@
                     }
                 ],
                 "selector": {
-                    "deploymentConfig": "jdg"
+                    "deploymentConfig": "${APPLICATION_NAME}-jdg"
                 }
             },
             "metadata": {
@@ -398,7 +398,7 @@
                     }
                 ],
                 "selector": {
-                    "deploymentConfig": "jdg"
+                    "deploymentConfig": "${APPLICATION_NAME}-jdg"
                 }
             },
             "metadata": {
@@ -468,9 +468,9 @@
             "kind": "ImageStream",
             "apiVersion": "v1",
             "metadata": {
-                "name": "jdg",
+                "name": "${APPLICATION_NAME}-jdg",
                 "labels": {
-                    "application": "jdg"
+                    "application": "${APPLICATION_NAME}jdg"
                 }
             }
         },
@@ -870,9 +870,9 @@
             "kind": "DeploymentConfig",
             "apiVersion": "v1",
             "metadata": {
-                "name": "jdg",
+                "name": "${APPLICATION_NAME}-jdg",
                 "labels": {
-                    "application": "jdg"
+                    "application": "${APPLICATION_NAME}"
                 }
             },
             "spec": {
@@ -885,7 +885,7 @@
                         "imageChangeParams": {
                             "automatic": true,
                             "containerNames": [
-                                "jdg"
+                                "${APPLICATION_NAME}-jdg"
                             ],
                             "from": {
                                 "kind": "ImageStreamTag",
@@ -898,15 +898,15 @@
                         "type": "ConfigChange"
                     }
                 ],
-                "replicas": 2,
+                "replicas": 1,
                 "selector": {
-                    "deploymentConfig": "jdg"
+                    "deploymentConfig": "${APPLICATION_NAME}-jdg"
                 },
                 "template": {
                     "metadata": {
-                        "name": "jdg",
+                        "name": "${APPLICATION_NAME}-jdg",
                         "labels": {
-                            "deploymentConfig": "jdg",
+                            "deploymentConfig": "${APPLICATION_NAME}-jdg",
                             "application": "${APPLICATION_NAME}"
                         }
                     },
@@ -914,7 +914,7 @@
                         "terminationGracePeriodSeconds": 60,
                         "containers": [
                             {
-                                "name": "jdg",
+                                "name": "${APPLICATION_NAME}-jdg",
                                 "image": "jboss-datagrid65-openshift",
                                 "imagePullPolicy": "Always",
                                 "ports": [
@@ -945,6 +945,42 @@
                                     }
                                 ],
                                 "env": [
+                                    {
+                                        "name": "DB_SERVICE_PREFIX_MAPPING",
+                                        "value": "${APPLICATION_NAME}-postgresql=POSTGRESQL"
+                                    },
+                                    {
+                                        "name": "POSTGRESQL_JNDI",
+                                        "value": "${DB_JNDI}"
+                                    },
+                                    {
+                                        "name": "POSTGRESQL_USERNAME",
+                                        "value": "${DB_USERNAME}"
+                                    },
+                                    {
+                                        "name": "POSTGRESQL_PASSWORD",
+                                        "value": "${DB_PASSWORD}"
+                                    },
+                                    {
+                                        "name": "POSTGRESQL_DATABASE",
+                                        "value": "${DB_DATABASE}"
+                                    },
+                                    {
+                                        "name": "TX_DATABASE_PREFIX_MAPPING",
+                                        "value": "${APPLICATION_NAME}-postgresql=POSTGRESQL"
+                                    },
+                                    {
+                                        "name": "POSTGRESQL_MIN_POOL_SIZE",
+                                        "value": "${DB_MIN_POOL_SIZE}"
+                                    },
+                                    {
+                                        "name": "POSTGRESQL_MAX_POOL_SIZE",
+                                        "value": "${DB_MAX_POOL_SIZE}"
+                                    },
+                                    {
+                                        "name": "POSTGRESQL_TX_ISOLATION",
+                                        "value": "${DB_TX_ISOLATION}"
+                                    },
                                     {
                                         "name": "USERNAME",
                                         "value": "${USERNAME}"
@@ -994,8 +1030,124 @@
                                         "value": "${JGROUPS_CLUSTER_PASSWORD}"
                                     },
                                     {
-                                        "name": "DATAVIRT_CACHE_NAMES",
-                                        "value": "addressbook"
+                                        "name": "ADDRESSBOOK_CACHE_START",
+                                        "value": "EAGER"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_CACHE_INDEX",
+                                        "value": "ALL"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXING_PROPERTIES",
+                                        "value": "default.directory_provider=ram"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_LOCKING_ACQUIRE_TIMEOUT",
+                                        "value": "20000"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_LOCKING_CONCURRENCY_LEVEL",
+                                        "value": "500"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_LOCKING_STRIPING",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_JDBC_STORE_TYPE",
+                                        "value": "string"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_JDBC_STORE_DATASOURCE",
+                                        "value": "${DB_JNDI}"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_KEYED_TABLE_PREFIX",
+                                        "value": "JDG"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_ID_TYPE",
+                                        "value": "VARCHAR"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_DATA_TYPE",
+                                        "value": "BYTEA"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_TIMESTAMP_TYPE",
+                                        "value": "BIGINT"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_STAGING_CACHE_START",
+                                        "value": "EAGER"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_STAGING_CACHE_INDEX",
+                                        "value": "ALL"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_STAGING_INDEXING_PROPERTIES",
+                                        "value": "default.directory_provider=ram"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_STAGING_LOCKING_ACQUIRE_TIMEOUT",
+                                        "value": "20000"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_STAGING_LOCKING_CONCURRENCY_LEVEL",
+                                        "value": "500"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_STAGING_LOCKING_STRIPING",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_STAGING_JDBC_STORE_TYPE",
+                                        "value": "string"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_STAGING_JDBC_STORE_DATASOURCE",
+                                        "value": "${DB_JNDI}"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_STAGING_KEYED_TABLE_PREFIX",
+                                        "value": "JDG"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_STAGING_ID_TYPE",
+                                        "value": "VARCHAR"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_STAGING_DATA_TYPE",
+                                        "value": "BYTEA"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_STAGING_TIMESTAMP_TYPE",
+                                        "value": "BIGINT"
+                                    },
+                                     {
+                                        "name": "ADDRESSBOOK_ALIAS_CACHE_START",
+                                        "value": "EAGER"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_ALIAS_LOCKING_ACQUIRE_TIMEOUT",
+                                        "value": "20000"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_ALIAS_LOCKING_CONCURRENCY_LEVEL",
+                                        "value": "500"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_ALIAS_LOCKING_STRIPING",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_ALIAS_JDBC_STORE_TYPE",
+                                        "value": "string"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_ALIAS_JDBC_STORE_DATASOURCE",
+                                        "value": "${DB_JNDI}"
                                     }
                                 ]
                             }

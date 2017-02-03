@@ -211,7 +211,7 @@
         {
             "description": "Comma-separated list of caches to configure.  By default, a distributed-cache, with a mode of SYNC will be configured for each entry.",
             "name": "CACHE_NAMES",
-            "value": "",
+            "value": "addressbook_indexed,addressbook,addressbook_indexed_mat,aliasCache",
             "required": false
         },
         {
@@ -374,7 +374,7 @@
                     }
                 ],
                 "selector": {
-                    "deploymentConfig": "jdg"
+                    "deploymentConfig": "${APPLICATION_NAME}-jdg"
                 }
             },
             "metadata": {
@@ -398,7 +398,7 @@
                     }
                 ],
                 "selector": {
-                    "deploymentConfig": "jdg"
+                    "deploymentConfig": "${APPLICATION_NAME}-jdg"
                 }
             },
             "metadata": {
@@ -468,9 +468,9 @@
             "kind": "ImageStream",
             "apiVersion": "v1",
             "metadata": {
-                "name": "jdg",
+                "name": "${APPLICATION_NAME}-jdg",
                 "labels": {
-                    "application": "jdg"
+                    "application": "${APPLICATION_NAME}jdg"
                 }
             }
         },
@@ -870,9 +870,9 @@
             "kind": "DeploymentConfig",
             "apiVersion": "v1",
             "metadata": {
-                "name": "jdg",
+                "name": "${APPLICATION_NAME}-jdg",
                 "labels": {
-                    "application": "jdg"
+                    "application": "${APPLICATION_NAME}"
                 }
             },
             "spec": {
@@ -885,7 +885,7 @@
                         "imageChangeParams": {
                             "automatic": true,
                             "containerNames": [
-                                "jdg"
+                                "${APPLICATION_NAME}-jdg"
                             ],
                             "from": {
                                 "kind": "ImageStreamTag",
@@ -898,15 +898,15 @@
                         "type": "ConfigChange"
                     }
                 ],
-                "replicas": 2,
+                "replicas": 1,
                 "selector": {
-                    "deploymentConfig": "jdg"
+                    "deploymentConfig": "${APPLICATION_NAME}-jdg"
                 },
                 "template": {
                     "metadata": {
-                        "name": "jdg",
+                        "name": "${APPLICATION_NAME}-jdg",
                         "labels": {
-                            "deploymentConfig": "jdg",
+                            "deploymentConfig": "${APPLICATION_NAME}-jdg",
                             "application": "${APPLICATION_NAME}"
                         }
                     },
@@ -914,7 +914,7 @@
                         "terminationGracePeriodSeconds": 60,
                         "containers": [
                             {
-                                "name": "jdg",
+                                "name": "${APPLICATION_NAME}-jdg",
                                 "image": "jboss-datagrid65-openshift",
                                 "imagePullPolicy": "Always",
                                 "ports": [
@@ -952,6 +952,26 @@
                                     {
                                         "name": "PASSWORD",
                                         "value": "${PASSWORD}"
+                                    },
+                                    {
+                                        "name": "HOTROD_AUTHENTICATION",
+                                        "value": "${HOTROD_AUTHENTICATION}"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_CACHE_SECURITY_AUTHORIZATION_ENABLED",
+                                        "value": "true"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_CACHE_SECURITY_AUTHORIZATION_ROLES",
+                                        "value": "admin"
+                                    },
+                                    {
+                                        "name": "CONTAINER_SECURITY_ROLE_MAPPER",
+                                        "value": "identity-role-mapper"
+                                    },
+{
+                                        "name": "CONTAINER_SECURITY_ROLES",
+                                        "value": "admin=ALL"
                                     },
                                     {
                                         "name": "OPENSHIFT_KUBE_PING_LABELS",
@@ -994,8 +1014,164 @@
                                         "value": "${JGROUPS_CLUSTER_PASSWORD}"
                                     },
                                     {
-                                        "name": "DATAVIRT_CACHE_NAMES",
-                                        "value": "addressbook"
+                                        "name": "ADDRESSBOOK_INDEXED_CACHE_START",
+                                        "value": "EAGER"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_CACHE_INDEX",
+                                        "value": "ALL"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_INDEXING_PROPERTIES",
+                                        "value": "default.directory_provider=ram"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_LOCKING_ACQUIRE_TIMEOUT",
+                                        "value": "20000"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_LOCKING_CONCURRENCY_LEVEL",
+                                        "value": "500"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_LOCKING_STRIPING",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_JDBC_STORE_TYPE",
+                                        "value": "string"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_JDBC_STORE_DATASOURCE",
+                                        "value": "java:jboss/datasources/ExampleDS"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_KEYED_TABLE_PREFIX",
+                                        "value": "JDG"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_ID_TYPE",
+                                        "value": "VARCHAR"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_DATA_TYPE",
+                                        "value": "BINARY"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_TIMESTAMP_TYPE",
+                                        "value": "BIGINT"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_CACHE_START",
+                                        "value": "EAGER"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_LOCKING_ACQUIRE_TIMEOUT",
+                                        "value": "20000"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_LOCKING_CONCURRENCY_LEVEL",
+                                        "value": "500"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_LOCKING_STRIPING",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_JDBC_STORE_TYPE",
+                                        "value": "string"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_JDBC_STORE_DATASOURCE",
+                                        "value": "java:jboss/datasources/ExampleDS"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_ID_TYPE",
+                                        "value": "VARCHAR"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_DATA_TYPE",
+                                        "value": "BINARY"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_TIMESTAMP_TYPE",
+                                        "value": "BIGINT"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_KEYED_TABLE_PREFIX",
+                                        "value": "JDG"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_MAT_CACHE_START",
+                                        "value": "EAGER"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_MAT_CACHE_INDEX",
+                                        "value": "ALL"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_MAT_INDEXING_PROPERTIES",
+                                        "value": "default.directory_provider=ram"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_MAT_LOCKING_ACQUIRE_TIMEOUT",
+                                        "value": "20000"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_MAT_LOCKING_CONCURRENCY_LEVEL",
+                                        "value": "500"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_MAT_LOCKING_STRIPING",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_MAT_JDBC_STORE_TYPE",
+                                        "value": "string"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_MAT_JDBC_STORE_DATASOURCE",
+                                        "value": "java:jboss/datasources/ExampleDS"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_MAT_KEYED_TABLE_PREFIX",
+                                        "value": "JDG"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_MAT_ID_TYPE",
+                                        "value": "VARCHAR"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_MAT_DATA_TYPE",
+                                        "value": "BINARY"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXED_MAT_TIMESTAMP_TYPE",
+                                        "value": "BIGINT"
+                                    },
+                                     {
+                                        "name": "ALIASCACHE_CACHE_START",
+                                        "value": "EAGER"
+                                    },
+                                    {
+                                        "name": "ALIASCACHE_LOCKING_ACQUIRE_TIMEOUT",
+                                        "value": "20000"
+                                    },
+                                    {
+                                        "name": "ALIASCACHE_LOCKING_CONCURRENCY_LEVEL",
+                                        "value": "500"
+                                    },
+                                    {
+                                        "name": "ALIASCACHE_LOCKING_STRIPING",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "name": "ALIASCACHE_JDBC_STORE_TYPE",
+                                        "value": "string"
+                                    },
+                                    {
+                                        "name": "ALIASCACHE_JDBC_STORE_DATASOURCE",
+                                        "value": "java:jboss/datasources/ExampleDS"
                                     }
                                 ]
                             }
