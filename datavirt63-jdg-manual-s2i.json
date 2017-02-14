@@ -211,7 +211,7 @@
         {
             "description": "Comma-separated list of caches to configure.  By default, a distributed-cache, with a mode of SYNC will be configured for each entry.",
             "name": "CACHE_NAMES",
-            "value": "addressbook,addressbook_staging,addressbook_alias",
+            "value": "ADDRESSBOOK,ADDRESSBOOK_STAGING,ADDRESSBOOK_ALIAS",
             "required": false
         },
         {
