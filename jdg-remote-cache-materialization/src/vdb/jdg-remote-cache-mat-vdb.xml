@@ -12,7 +12,7 @@
                    <property name="importer.tableTypes" value="TABLE,VIEW"/>
                    <property name="importer.useFullSchemaName" value="false"/>
                    <property name="importer.widenUnsignedTypes" value="false"/>
-                   <source name="postgresql-connector" translator-name="translator-postgresql" connection-jndi-name="java:jboss/datasources/TestDB"/>
+                   <source name="postgresql-connector" translator-name="translator-postgresql" connection-jndi-name="java:/accounts-ds"/>
     </model>
    
     <model name="PersonInfoModel" type="VIRTUAL">
@@ -84,5 +84,9 @@
        <property name="SupportsNativeQueries" value="true"/>
         <property name="SupportsCompareCriteriaOrdered" value="true" />
 
+    </translator>
+
+    <translator name="translator-postgresql" type="postgresql">
+        <property name="SupportsNativeQueries" value="true"/>
     </translator>
 </vdb>
