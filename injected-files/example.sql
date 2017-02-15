@@ -16,11 +16,11 @@ CREATE TABLE status
 
 CREATE TABLE mytable
 (
-   _id varchar(64),
+   _id integer,
    _value varchar(64),
    CONSTRAINT MYTABLE_PK PRIMARY KEY(_id)
 );
 
-INSERT INTO mytable (_id,_value) VALUES ('000001','Bill');
+INSERT INTO mytable (_id,_value) VALUES (1,'Bill');
 
 

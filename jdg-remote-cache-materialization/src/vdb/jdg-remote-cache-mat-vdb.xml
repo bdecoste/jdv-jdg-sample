@@ -59,8 +59,7 @@
 	CREATE view PersonMatView
 		(
             name string,
-            id integer,
-            email string
+            id integer
             
  		) OPTIONS (MATERIALIZED 'TRUE', UPDATABLE 'TRUE',         
                MATERIALIZED_TABLE 'PersonMatCache.Person', 
