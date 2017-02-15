@@ -72,7 +72,7 @@
                "teiid_rel:ALLOW_MATVIEW_MANAGEMENT" 'true', 
                "teiid_rel:MATVIEW_STATUS_TABLE" 'Example.status',                
                "teiid_rel:MATVIEW_ONERROR_ACTION" 'WAIT')
- 		AS SELECT  name, id, email from PersonInfoModel.PersonInfo;
+ 		AS SELECT  name, id from PersonInfoModel.PersonInfo;
     	]]>
    		</metadata>
 	</model>               
