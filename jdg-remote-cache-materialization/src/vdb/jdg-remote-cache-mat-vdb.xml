@@ -63,7 +63,7 @@
             
  		) OPTIONS (MATERIALIZED 'TRUE', UPDATABLE 'TRUE',         
                MATERIALIZED_TABLE 'PersonMatCache.Person', 
-               "teiid_rel:MATVIEW_TTL" 60000,
+               "teiid_rel:MATVIEW_TTL" 300000,
                "teiid_rel:MATVIEW_BEFORE_LOAD_SCRIPT" 'execute PersonMatCache.native(''truncate cache'');',
    		       "teiid_rel:MATVIEW_LOAD_SCRIPT" 'insert into PersonMatCache.ST_Person (name, id) SELECT  name, id from PersonInfoModel.PersonInfo',
                "teiid_rel:MATVIEW_AFTER_LOAD_SCRIPT"  'execute PersonMatCache.native(''swap cache names'');', 
