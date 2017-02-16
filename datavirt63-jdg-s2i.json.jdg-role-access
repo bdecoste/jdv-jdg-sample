@@ -211,7 +211,7 @@
         {
             "description": "Comma-separated list of caches to configure.  By default, a distributed-cache, with a mode of SYNC will be configured for each entry.",
             "name": "CACHE_NAMES",
-            "value": "addressbook_indexed,addressbook,addressbook_indexed_mat,aliasCache",
+            "value": "ADDRESSBOOK,ADDRESSBOOK_STAGING,ADDRESSBOOK_ALIAS",
             "required": false
         },
         {
@@ -1025,56 +1025,16 @@
                                         "value": "${JGROUPS_CLUSTER_PASSWORD}"
                                     },
                                     {
-                                        "name": "ADDRESSBOOK_INDEXED_CACHE_START",
+                                        "name": "ADDRESSBOOK_CACHE_START",
                                         "value": "EAGER"
                                     },
                                     {
-                                        "name": "ADDRESSBOOK_INDEXED_CACHE_INDEX",
+                                        "name": "ADDRESSBOOK_CACHE_INDEX",
                                         "value": "ALL"
                                     },
                                     {
-                                        "name": "ADDRESSBOOK_INDEXED_INDEXING_PROPERTIES",
+                                        "name": "ADDRESSBOOK_INDEXING_PROPERTIES",
                                         "value": "default.directory_provider=ram"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_INDEXED_LOCKING_ACQUIRE_TIMEOUT",
-                                        "value": "20000"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_INDEXED_LOCKING_CONCURRENCY_LEVEL",
-                                        "value": "500"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_INDEXED_LOCKING_STRIPING",
-                                        "value": "false"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_INDEXED_JDBC_STORE_TYPE",
-                                        "value": "string"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_INDEXED_JDBC_STORE_DATASOURCE",
-                                        "value": "java:jboss/datasources/ExampleDS"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_INDEXED_KEYED_TABLE_PREFIX",
-                                        "value": "JDG"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_INDEXED_ID_TYPE",
-                                        "value": "VARCHAR"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_INDEXED_DATA_TYPE",
-                                        "value": "BINARY"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_INDEXED_TIMESTAMP_TYPE",
-                                        "value": "BIGINT"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_CACHE_START",
-                                        "value": "EAGER"
                                     },
                                     {
                                         "name": "ADDRESSBOOK_LOCKING_ACQUIRE_TIMEOUT",
@@ -1097,6 +1057,10 @@
                                         "value": "java:jboss/datasources/ExampleDS"
                                     },
                                     {
+                                        "name": "ADDRESSBOOK_KEYED_TABLE_PREFIX",
+                                        "value": "JDG"
+                                    },
+                                    {
                                         "name": "ADDRESSBOOK_ID_TYPE",
                                         "value": "VARCHAR"
                                     },
@@ -1109,79 +1073,75 @@
                                         "value": "BIGINT"
                                     },
                                     {
-                                        "name": "ADDRESSBOOK_KEYED_TABLE_PREFIX",
-                                        "value": "JDG"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_INDEXED_MAT_CACHE_START",
+                                        "name": "ADDRESSBOOK_STAGING_CACHE_START",
                                         "value": "EAGER"
                                     },
                                     {
-                                        "name": "ADDRESSBOOK_INDEXED_MAT_CACHE_INDEX",
+                                        "name": "ADDRESSBOOK_STAGING_CACHE_INDEX",
                                         "value": "ALL"
                                     },
                                     {
-                                        "name": "ADDRESSBOOK_INDEXED_MAT_INDEXING_PROPERTIES",
+                                        "name": "ADDRESSBOOK_STAGING_INDEXING_PROPERTIES",
                                         "value": "default.directory_provider=ram"
                                     },
                                     {
-                                        "name": "ADDRESSBOOK_INDEXED_MAT_LOCKING_ACQUIRE_TIMEOUT",
+                                        "name": "ADDRESSBOOK_STAGING_LOCKING_ACQUIRE_TIMEOUT",
                                         "value": "20000"
                                     },
                                     {
-                                        "name": "ADDRESSBOOK_INDEXED_MAT_LOCKING_CONCURRENCY_LEVEL",
+                                        "name": "ADDRESSBOOK_STAGING_LOCKING_CONCURRENCY_LEVEL",
                                         "value": "500"
                                     },
                                     {
-                                        "name": "ADDRESSBOOK_INDEXED_MAT_LOCKING_STRIPING",
+                                        "name": "ADDRESSBOOK_STAGING_LOCKING_STRIPING",
                                         "value": "false"
                                     },
                                     {
-                                        "name": "ADDRESSBOOK_INDEXED_MAT_JDBC_STORE_TYPE",
+                                        "name": "ADDRESSBOOK_STAGING_JDBC_STORE_TYPE",
                                         "value": "string"
                                     },
                                     {
-                                        "name": "ADDRESSBOOK_INDEXED_MAT_JDBC_STORE_DATASOURCE",
+                                        "name": "ADDRESSBOOK_STAGING_JDBC_STORE_DATASOURCE",
                                         "value": "java:jboss/datasources/ExampleDS"
                                     },
                                     {
-                                        "name": "ADDRESSBOOK_INDEXED_MAT_KEYED_TABLE_PREFIX",
+                                        "name": "ADDRESSBOOK_STAGING_KEYED_TABLE_PREFIX",
                                         "value": "JDG"
                                     },
                                     {
-                                        "name": "ADDRESSBOOK_INDEXED_MAT_ID_TYPE",
+                                        "name": "ADDRESSBOOK_STAGING_ID_TYPE",
                                         "value": "VARCHAR"
                                     },
                                     {
-                                        "name": "ADDRESSBOOK_INDEXED_MAT_DATA_TYPE",
+                                        "name": "ADDRESSBOOK_STAGING_DATA_TYPE",
                                         "value": "BINARY"
                                     },
                                     {
-                                        "name": "ADDRESSBOOK_INDEXED_MAT_TIMESTAMP_TYPE",
+                                        "name": "ADDRESSBOOK_STAGING_TIMESTAMP_TYPE",
                                         "value": "BIGINT"
                                     },
                                      {
-                                        "name": "ALIASCACHE_CACHE_START",
+                                        "name": "ADDRESSBOOK_ALIAS_CACHE_START",
                                         "value": "EAGER"
                                     },
                                     {
-                                        "name": "ALIASCACHE_LOCKING_ACQUIRE_TIMEOUT",
+                                        "name": "ADDRESSBOOK_ALIAS_LOCKING_ACQUIRE_TIMEOUT",
                                         "value": "20000"
                                     },
                                     {
-                                        "name": "ALIASCACHE_LOCKING_CONCURRENCY_LEVEL",
+                                        "name": "ADDRESSBOOK_ALIAS_LOCKING_CONCURRENCY_LEVEL",
                                         "value": "500"
                                     },
                                     {
-                                        "name": "ALIASCACHE_LOCKING_STRIPING",
+                                        "name": "ADDRESSBOOK_ALIAS_LOCKING_STRIPING",
                                         "value": "false"
                                     },
                                     {
-                                        "name": "ALIASCACHE_JDBC_STORE_TYPE",
+                                        "name": "ADDRESSBOOK_ALIAS_JDBC_STORE_TYPE",
                                         "value": "string"
                                     },
                                     {
-                                        "name": "ALIASCACHE_JDBC_STORE_DATASOURCE",
+                                        "name": "ADDRESSBOOK_ALIAS_JDBC_STORE_DATASOURCE",
                                         "value": "java:jboss/datasources/ExampleDS"
                                     }
                                 ]
