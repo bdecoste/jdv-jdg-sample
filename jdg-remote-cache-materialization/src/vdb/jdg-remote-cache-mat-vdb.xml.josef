@@ -6,9 +6,32 @@
     <property name="UseConnectorMetadata" value="cached" />   
     <property name ="lib" value ="com.client.quickstart.addressbook.pojos" />
     
-    <import-vdb name="Portfolio" version="1" import-data-policies="true"/>
+    <!--import-vdb name="Portfolio" version="1" import-data-policies="true"/-->
 
+    <model name="Example">
+                   <property name="importer.tableTypes" value="TABLE,VIEW"/>
+                   <property name="importer.useFullSchemaName" value="false"/>
+                   <property name="importer.widenUnsignedTypes" value="false"/>
+                   <source name="postgresql-connector" translator-name="translator-postgresql" connection-jndi-name="java:/accounts-ds"/>
+    </model>
+   
     <model name="PersonInfoModel" type="VIRTUAL">
+                   <property name="imports" value="Example"/>
+                   <metadata type="DDL"><![CDATA[
+   
+           CREATE VIEW PersonInfo (
+               name string,
+               id integer
+               )
+               AS
+                 SELECT "_value" as name, "_id" as "id"
+                 FROM mytable;
+   
+           ]]> </metadata>
+   </model>
+    
+ 
+    <!--model name="PersonInfoModel" type="VIRTUAL">
         <metadata type="DDL"><![CDATA[   
                 
         CREATE VIEW PersonInfo (
@@ -22,7 +45,7 @@
                    from ACCOUNTS.CUSTOMER c, ACCOUNTS.ACCOUNT a WHERE a.SSN = c.SSN;
                  
         ]]> </metadata>
-    </model>       
+    </model-->       
     
     <model name="PersonMatCache" type="Physical">
         <property name="importer.useFullSchemaName" value="false"/>
@@ -36,20 +59,19 @@
 	CREATE view PersonMatView
 		(
             name string,
-            id integer,
-            email string
+            id integer
             
  		) OPTIONS (MATERIALIZED 'TRUE', UPDATABLE 'TRUE',         
                MATERIALIZED_TABLE 'PersonMatCache.Person', 
                "teiid_rel:MATVIEW_TTL" 300000,
                "teiid_rel:MATVIEW_BEFORE_LOAD_SCRIPT" 'execute PersonMatCache.native(''truncate cache'');',
-   		       "teiid_rel:MATVIEW_LOAD_SCRIPT" 'insert into PersonMatCache.ST_Person (name, id, email) SELECT  name, id, email from PersonInfoModel.PersonInfo',
+   		       "teiid_rel:MATVIEW_LOAD_SCRIPT" 'insert into PersonMatCache.ST_Person (name, id) SELECT  name, id from PersonInfoModel.PersonInfo',
                "teiid_rel:MATVIEW_AFTER_LOAD_SCRIPT"  'execute PersonMatCache.native(''swap cache names'');', 
                "teiid_rel:MATVIEW_SHARE_SCOPE" 'NONE',
                "teiid_rel:ALLOW_MATVIEW_MANAGEMENT" 'true', 
                "teiid_rel:MATVIEW_STATUS_TABLE" 'Example.status',                
                "teiid_rel:MATVIEW_ONERROR_ACTION" 'WAIT')
- 		AS SELECT  name, id, email from PersonInfoModel.PersonInfo;
+ 		AS SELECT  name, id from PersonInfoModel.PersonInfo;
     	]]>
    		</metadata>
 	</model>               
