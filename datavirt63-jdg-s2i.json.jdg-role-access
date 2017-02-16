@@ -215,6 +215,21 @@
             "required": false
         },
         {
+            "name": "CACHE_ROLES",
+            "value": "",
+            "required": false
+        },
+        {
+            "name": "CONTAINER_SECURITY_ROLE_MAPPER",
+            "value": "",
+            "required": false
+        },
+        {
+            "name": "CONTAINER_SECURITY_ROLES",
+            "value": "",
+            "required": false
+        },
+        {
             "description": "",
             "name": "ENCRYPTION_REQUIRE_SSL_CLIENT_AUTH",
             "value": "",
@@ -970,19 +985,19 @@
                                     },
                                     {
                                         "name": "ADDRESSBOOK_CACHE_SECURITY_AUTHORIZATION_ENABLED",
-                                        "value": "true"
+                                        "value": "${HOTROD_AUTHENTICATION}"
                                     },
                                     {
                                         "name": "ADDRESSBOOK_CACHE_SECURITY_AUTHORIZATION_ROLES",
-                                        "value": "admin"
+                                        "value": "${CACHE_ROLES}"
                                     },
                                     {
                                         "name": "CONTAINER_SECURITY_ROLE_MAPPER",
-                                        "value": "identity-role-mapper"
+                                        "value": "${CONTAINER_SECURITY_ROLE_MAPPER}"
                                     },
 {
                                         "name": "CONTAINER_SECURITY_ROLES",
-                                        "value": "admin=ALL"
+                                        "value": "${CONTAINER_SECURITY_ROLES}"
                                     },
                                     {
                                         "name": "OPENSHIFT_KUBE_PING_LABELS",
