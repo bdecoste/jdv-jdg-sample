@@ -714,11 +714,6 @@
                                         "name": "config-volume",
                                         "mountPath": "/opt/eap/extensions",
                                         "readOnly": false
-                                    },
-                                    {
-                                        "name": "hotrod-volume",
-                                        "mountPath": "/etc/hotrod-secret-volume",
-                                        "readOnly": true
                                     }
                                 ],
                                 "livenessProbe": {
@@ -867,12 +862,6 @@
                                 "name": "teiid-keystore-volume",
                                 "secret": {
                                     "secretName": "datavirt-app-secret"
-                                }
-                            },
-                            {
-                                "name": "hotrod-volume",
-                                "secret": {
-                                    "secretName": "hotrod-secret"
                                 }
                             },
                             {
