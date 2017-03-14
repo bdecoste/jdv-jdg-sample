@@ -187,19 +187,19 @@
         {
             "description": "User name for JDG user.",
             "name": "USERNAME",
-            "value": "",
+            "value": "jdguser",
             "required": false
         },
         {
             "description": "Password for JDG user.",
             "name": "PASSWORD",
-            "value": "",
+            "value": "P@ssword1",
             "required": false
         },
         {
             "description": "Enable HOTROD Auth",
             "name": "HOTROD_AUTHENTICATION",
-            "value": "",
+            "value": "true",
             "required": false
         },
         {
@@ -216,17 +216,17 @@
         },
         {
             "name": "CACHE_ROLES",
-            "value": "",
+            "value": "admin",
             "required": false
         },
         {
             "name": "CONTAINER_SECURITY_ROLE_MAPPER",
-            "value": "",
+            "value": "identity-role-mapper",
             "required": false
         },
         {
             "name": "CONTAINER_SECURITY_ROLES",
-            "value": "",
+            "value": "admin=ALL",
             "required": false
         },
         {

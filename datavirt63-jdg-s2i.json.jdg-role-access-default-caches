@@ -199,7 +199,7 @@
         {
             "description": "Enable HOTROD Auth",
             "name": "HOTROD_AUTHENTICATION",
-            "value": "",
+            "value": "true",
             "required": false
         },
         {
@@ -210,8 +210,23 @@
         },
         {
             "description": "Comma-separated list of caches to configure.  By default, a distributed-cache, with a mode of SYNC will be configured for each entry.",
-            "name": "CACHE_NAMES",
-            "value": "",
+            "name": "DATAVIRT_CACHE_NAMES",
+            "value": "ADDRESSBOOK",
+            "required": false
+        },
+        {
+            "name": "CACHE_ROLES",
+            "value": "admin,
+            "required": false
+        },
+        {
+            "name": "CONTAINER_SECURITY_ROLE_MAPPER",
+            "value": "identity-role-mapper",
+            "required": false
+        },
+        {
+            "name": "CONTAINER_SECURITY_ROLES",
+            "value": "admin=ALL",
             "required": false
         },
         {
@@ -235,7 +250,7 @@
         {
             "description": "List of directories from which VDBS will be copied into the deployment folder.  If unspecified, all archives in source will be copied.",
             "name": "VDB_DIRS",
-            "value": "dynamicvdb-datafederation/src/vdb,jdg-remote-cache-materialization/src/vdb",
+            "value": "jdg-remote-cache-materialization/src/vdb,dynamicvdb-datafederation/src/vdb",
             "required": false
         }
     ],
@@ -264,7 +279,7 @@
             },
             "data": {
                   "preconfigure.sh": "IyEvYmluL2Jhc2gKCnNldCAteAoKZWNobyAiISEhISEhISEhISEhISEhISEgcHJlL3Bvc3QgcnVu\ndGltZSBjb25maWd1cmUiCmNhdCAvb3B0L2VhcC9zdGFuZGFsb25lL2NvbmZpZ3VyYXRpb24vc3Rh\nbmRhbG9uZS1vcGVuc2hpZnQueG1sCg==",
-                  "postconfigure.sh": "IyEvYmluL2Jhc2gKCnNldCAteAoKZWNobyAiISEhISEhISEhISEhISEhISEgcHJlL3Bvc3QgcnVudGltZSBjb25maWd1cmUiCmNhdCAvb3B0L2VhcC9zdGFuZGFsb25lL2NvbmZpZ3VyYXRpb24vc3RhbmRhbG9uZS1vcGVuc2hpZnQueG1sCgpQR1BBU1NXT1JEPSRQT1NUR1JFU1FMX1BBU1NXT1JEIC91c3IvYmluL3BzcWwgLWggJERBVEFWSVJUX1BPU1RHUkVTUUxfU0VSVklDRV9IT1NUIC1kICRQT1NUR1JFU1FMX0RBVEFCQVNFIC1VICRQT1NUR1JFU1FMX1VTRVJOQU1FIC1mICR7SE9NRX0vc291cmNlL2luamVjdGVkL2luamVjdGVkLWZpbGVzL2V4YW1wbGUuc3FsCgojUEdQQVNTV09SRD0kUE9TVEdSRVNRTF9QQVNTV09SRCAvdXNyL2Jpbi9wc3FsIC1oICREQVRBVklSVF9QT1NUR1JFU1FMX1NFUlZJQ0VfSE9TVCAtZCAkUE9TVEdSRVNRTF9EQVRBQkFTRSAtVSAkUE9TVEdSRVNRTF9VU0VSTkFNRSAtZiAke0hPTUV9L3NvdXJjZS9pbmplY3RlZC9pbmplY3RlZC1maWxlcy9jdXN0b21lci1zY2hlbWEtcGcuc3FsCg=="
+                  "postconfigure.sh": "IyEvYmluL2Jhc2gKCnNldCAteAoKZWNobyAiISEhISEhISEhISEhISEhISEgcHJlL3Bvc3QgcnVu\ndGltZSBjb25maWd1cmUiCmNhdCAvb3B0L2VhcC9zdGFuZGFsb25lL2NvbmZpZ3VyYXRpb24vc3Rh\nbmRhbG9uZS1vcGVuc2hpZnQueG1sCgpQR1BBU1NXT1JEPSRQT1NUR1JFU1FMX1BBU1NXT1JEIC91\nc3IvYmluL3BzcWwgLWggJERBVEFWSVJUX1BPU1RHUkVTUUxfU0VSVklDRV9IT1NUIC1kICRQT1NU\nR1JFU1FMX0RBVEFCQVNFIC1VICRQT1NUR1JFU1FMX1VTRVJOQU1FIC1mICR7SE9NRX0vc291cmNl\nL2luamVjdGVkL2luamVjdGVkLWZpbGVzL2N1c3RvbWVyLXNjaGVtYS1wZy5zcWwK"
             }
         },
         {
@@ -374,7 +389,7 @@
                     }
                 ],
                 "selector": {
-                    "deploymentConfig": "jdg"
+                    "deploymentConfig": "${APPLICATION_NAME}-jdg"
                 }
             },
             "metadata": {
@@ -398,7 +413,7 @@
                     }
                 ],
                 "selector": {
-                    "deploymentConfig": "jdg"
+                    "deploymentConfig": "${APPLICATION_NAME}-jdg"
                 }
             },
             "metadata": {
@@ -468,9 +483,9 @@
             "kind": "ImageStream",
             "apiVersion": "v1",
             "metadata": {
-                "name": "jdg",
+                "name": "${APPLICATION_NAME}-jdg",
                 "labels": {
-                    "application": "jdg"
+                    "application": "${APPLICATION_NAME}jdg"
                 }
             }
         },
@@ -699,6 +714,11 @@
                                         "name": "config-volume",
                                         "mountPath": "/opt/eap/extensions",
                                         "readOnly": false
+                                    },
+                                    {
+                                        "name": "hotrod-volume",
+                                        "mountPath": "/etc/hotrod-secret-volume",
+                                        "readOnly": true
                                     }
                                 ],
                                 "livenessProbe": {
@@ -860,6 +880,12 @@
                                 "secret": {
                                     "secretName": "configure-secret"
                                 }
+                            },
+                            {
+                                "name": "hotrod-volume",
+                                "secret": {
+                                    "secretName": "hotrod-secret"
+                                }
                             }
                         ]
                     }
@@ -870,9 +896,9 @@
             "kind": "DeploymentConfig",
             "apiVersion": "v1",
             "metadata": {
-                "name": "jdg",
+                "name": "${APPLICATION_NAME}-jdg",
                 "labels": {
-                    "application": "jdg"
+                    "application": "${APPLICATION_NAME}"
                 }
             },
             "spec": {
@@ -885,7 +911,7 @@
                         "imageChangeParams": {
                             "automatic": true,
                             "containerNames": [
-                                "jdg"
+                                "${APPLICATION_NAME}-jdg"
                             ],
                             "from": {
                                 "kind": "ImageStreamTag",
@@ -900,13 +926,13 @@
                 ],
                 "replicas": 1,
                 "selector": {
-                    "deploymentConfig": "jdg"
+                    "deploymentConfig": "${APPLICATION_NAME}-jdg"
                 },
                 "template": {
                     "metadata": {
-                        "name": "jdg",
+                        "name": "${APPLICATION_NAME}-jdg",
                         "labels": {
-                            "deploymentConfig": "jdg",
+                            "deploymentConfig": "${APPLICATION_NAME}-jdg",
                             "application": "${APPLICATION_NAME}"
                         }
                     },
@@ -914,9 +940,27 @@
                         "terminationGracePeriodSeconds": 60,
                         "containers": [
                             {
-                                "name": "jdg",
+                                "name": "${APPLICATION_NAME}-jdg",
                                 "image": "jboss-datagrid65-openshift",
                                 "imagePullPolicy": "Always",
+                                "livenessProbe": {
+                                    "exec": {
+                                        "command": [
+                                            "/bin/bash",
+                                            "-c",
+                                            "/opt/datagrid/bin/livenessProbe.sh"
+                                        ]
+                                    }
+                                },
+                                "readinessProbe": {
+                                    "exec": {
+                                        "command": [
+                                            "/bin/bash",
+                                            "-c",
+                                            "/opt/datagrid/bin/readinessProbe.sh"
+                                        ]
+                                    }
+                                },
                                 "ports": [
                                     {
                                         "name": "jolokia",
@@ -954,6 +998,26 @@
                                         "value": "${PASSWORD}"
                                     },
                                     {
+                                        "name": "HOTROD_AUTHENTICATION",
+                                        "value": "${HOTROD_AUTHENTICATION}"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_CACHE_SECURITY_AUTHORIZATION_ENABLED",
+                                        "value": "${HOTROD_AUTHENTICATION}"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_CACHE_SECURITY_AUTHORIZATION_ROLES",
+                                        "value": "${CACHE_ROLES}"
+                                    },
+                                    {
+                                        "name": "CONTAINER_SECURITY_ROLE_MAPPER",
+                                        "value": "${CONTAINER_SECURITY_ROLE_MAPPER}"
+                                    },
+{
+                                        "name": "CONTAINER_SECURITY_ROLES",
+                                        "value": "${CONTAINER_SECURITY_ROLES}"
+                                    },
+                                    {
                                         "name": "OPENSHIFT_KUBE_PING_LABELS",
                                         "value": "application=${APPLICATION_NAME}"
                                     },
@@ -970,8 +1034,8 @@
                                         "value": "${INFINISPAN_CONNECTORS}"
                                     },
                                     {
-                                        "name": "CACHE_NAMES",
-                                        "value": "${CACHE_NAMES}"
+                                        "name": "DATAVIRT_CACHE_NAMES",
+                                        "value": "${DATAVIRT_CACHE_NAMES}"
                                     },
                                     {
                                         "name": "ENCRYPTION_REQUIRE_SSL_CLIENT_AUTH",
@@ -992,10 +1056,6 @@
                                     {
                                         "name": "JGROUPS_CLUSTER_PASSWORD",
                                         "value": "${JGROUPS_CLUSTER_PASSWORD}"
-                                    },
-                                    {
-                                        "name": "DATAVIRT_CACHE_NAMES",
-                                        "value": "ADDRESSBOOK"
                                     }
                                 ]
                             }
