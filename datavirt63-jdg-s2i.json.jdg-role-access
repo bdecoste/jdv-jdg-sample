@@ -250,7 +250,7 @@
         {
             "description": "List of directories from which VDBS will be copied into the deployment folder.  If unspecified, all archives in source will be copied.",
             "name": "VDB_DIRS",
-            "value": "jdg-remote-cache-materialization/src/vdb,dynamicvdb-datafederation/src/vdb",
+            "value": "jdg-remote-cache-materialization/src/vdb,dynamicvdb-datafederation/src/vdb,jdg-remote-cache/src/vdb",
             "required": false
         }
     ],
@@ -602,7 +602,7 @@
                         "from": {
                             "kind": "ImageStreamTag",
                             "namespace": "${IMAGE_STREAM_NAMESPACE}",
-                            "name": "jboss-datavirt63-openshift:1.1"
+                            "name": "jboss-datavirt63-openshift:6.4.0"
                         },
                          "env": [
                             {

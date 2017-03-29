@@ -587,7 +587,7 @@
                         "from": {
                             "kind": "ImageStreamTag",
                             "namespace": "${IMAGE_STREAM_NAMESPACE}",
-                            "name": "jboss-datavirt63-openshift:6.4.0"
+                            "name": "jboss-datavirt63-openshift:1.1"
                         },
                          "env": [
                             {
@@ -1034,8 +1034,32 @@
                                         "value": "EAGER"
                                     },
                                     {
+                                        "name": "ADDRESSBOOK_CACHE_INDEX",
+                                        "value": "ALL"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_INDEXING_PROPERTIES",
+                                        "value": "default.directory_provider=ram"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_LOCKING_ACQUIRE_TIMEOUT",
+                                        "value": "20000"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_LOCKING_CONCURRENCY_LEVEL",
+                                        "value": "500"
+                                    },
+                                    {
+                                        "name": "ADDRESSBOOK_LOCKING_STRIPING",
+                                        "value": "false"
+                                    },
+                                    {
                                         "name": "ADDRESSBOOK_JDBC_STORE_TYPE",
                                         "value": "string"
+                                    },
+                                    {
+                                        "name": "JDBC_STORE_PASSIVATION",
+                                        "value": "true"
                                     },
                                     {
                                         "name": "ADDRESSBOOK_JDBC_STORE_DATASOURCE",
@@ -1046,12 +1070,16 @@
                                         "value": "JDG"
                                     },
                                     {
+                                        "name": "ADDRESSBOOK_ID_TYPE",
+                                        "value": "VARCHAR"
+                                    },
+                                    {
                                         "name": "ADDRESSBOOK_DATA_TYPE",
                                         "value": "BYTEA"
                                     },
                                     {
-                                        "name": "ADDRESSBOOK_ID_TYPE",
-                                        "value": "VARCHAR"
+                                        "name": "ADDRESSBOOK_TIMESTAMP_TYPE",
+                                        "value": "BIGINT"
                                     }
                                 ]
                             }
