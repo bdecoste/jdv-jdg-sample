@@ -151,7 +151,7 @@
         {
             "description": "Password for JDV TEIID_USERNAME",
             "name": "TEIID_PASSWORD",
-            "value": "Password1%",
+            "value": "P@ssword1",
             "required": true
         },
         {
@@ -163,7 +163,7 @@
         {
             "description": "Password for JDV MODESHAPE_USERNAME",
             "name": "MODESHAPE_PASSWORD",
-            "value": "Password1%",
+            "value": "P@ssword1",
             "required": true
         },
         {
@@ -193,7 +193,7 @@
         {
             "description": "Password for JDG user.",
             "name": "PASSWORD",
-            "value": "Password1%",
+            "value": "P@ssword1",
             "required": false
         },
         {
@@ -932,6 +932,13 @@
                                 "name": "${APPLICATION_NAME}-jdg",
                                 "image": "jboss-datagrid65-openshift",
                                 "imagePullPolicy": "Always",
+                                "volumeMounts": [
+                                    {
+                                        "name": "teiid-keystore-volume",
+                                        "mountPath": "/etc/teiid-secret-volume",
+                                        "readOnly": true
+                                    }
+                                ],
                                 "ports": [
                                     {
                                         "name": "jolokia",
@@ -969,16 +976,24 @@
                                         "value": "${PASSWORD}"
                                     },
                                     {
-                                        "name": "ADMIN_USERNAME",
-                                        "value": "jdguser"
+                                        "name": "HOTROD_ENCRYPTION",
+                                        "value": "true"
                                     },
                                     {
-                                        "name": "ADMIN_PASSWORD",
-                                        "value": "${PASSWORD}"
+                                        "name": "ENCRYPTION_REQUIRE_SSL_CLIENT_AUTH",
+                                        "value": "false"
                                     },
                                     {
-                                        "name": "ADMIN_GROUP",
-                                        "value": "admin"
+                                        "name": "SSL_KEYSTORE_PATH",
+                                        "value": "/etc/teiid-secret-volume/keystore.jks"
+                                    },
+                                    {
+                                        "name": "SSL_KEYSTORE_PASSWORD",
+                                        "value": "mykeystorepass"
+                                    },
+                                    {
+                                        "name": "SSL_KEYSTORE_ALIAS",
+                                        "value": "jboss"
                                     },
                                     {
                                         "name": "HOTROD_AUTHENTICATION",
@@ -1161,6 +1176,14 @@
                                         "value": "java:jboss/datasources/ExampleDS"
                                     }
                                 ]
+                            }
+                        ],
+                        "volumes": [
+                            {
+                                "name": "teiid-keystore-volume",
+                                "secret": {
+                                    "secretName": "datavirt-app-secret"
+                                }
                             }
                         ]
                     }

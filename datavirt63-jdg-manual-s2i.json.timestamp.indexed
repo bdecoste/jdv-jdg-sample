@@ -151,7 +151,7 @@
         {
             "description": "Password for JDV TEIID_USERNAME",
             "name": "TEIID_PASSWORD",
-            "value": "Password1%",
+            "value": "P@ssword1",
             "required": true
         },
         {
@@ -163,7 +163,7 @@
         {
             "description": "Password for JDV MODESHAPE_USERNAME",
             "name": "MODESHAPE_PASSWORD",
-            "value": "Password1%",
+            "value": "P@ssword1",
             "required": true
         },
         {
@@ -187,19 +187,19 @@
         {
             "description": "User name for JDG user.",
             "name": "USERNAME",
-            "value": "jdguser",
+            "value": "",
             "required": false
         },
         {
             "description": "Password for JDG user.",
             "name": "PASSWORD",
-            "value": "Password1%",
+            "value": "",
             "required": false
         },
         {
             "description": "Enable HOTROD Auth",
             "name": "HOTROD_AUTHENTICATION",
-            "value": "true",
+            "value": "",
             "required": false
         },
         {
@@ -211,22 +211,7 @@
         {
             "description": "Comma-separated list of caches to configure.  By default, a distributed-cache, with a mode of SYNC will be configured for each entry.",
             "name": "CACHE_NAMES",
-            "value": "ADDRESSBOOK,ADDRESSBOOK_STAGING,ADDRESSBOOK_ALIAS",
-            "required": false
-        },
-        {
-            "name": "CACHE_ROLES",
-            "value": "admin",
-            "required": false
-        },
-        {
-            "name": "CONTAINER_SECURITY_ROLE_MAPPER",
-            "value": "identity-role-mapper",
-            "required": false
-        },
-        {
-            "name": "CONTAINER_SECURITY_ROLES",
-            "value": "admin=ALL",
+            "value": "ADDRESSBOOK",
             "required": false
         },
         {
@@ -250,7 +235,7 @@
         {
             "description": "List of directories from which VDBS will be copied into the deployment folder.  If unspecified, all archives in source will be copied.",
             "name": "VDB_DIRS",
-            "value": "jdg-remote-cache-materialization/src/vdb,dynamicvdb-datafederation/src/vdb,jdg-remote-cache/src/vdb",
+            "value": "dynamicvdb-datafederation/src/vdb,jdg-remote-cache/src/vdb",
             "required": false
         }
     ],
@@ -961,44 +946,48 @@
                                 ],
                                 "env": [
                                     {
+                                        "name": "DB_SERVICE_PREFIX_MAPPING",
+                                        "value": "${APPLICATION_NAME}-postgresql=POSTGRESQL"
+                                    },
+                                    {
+                                        "name": "POSTGRESQL_JNDI",
+                                        "value": "${DB_JNDI}"
+                                    },
+                                    {
+                                        "name": "POSTGRESQL_USERNAME",
+                                        "value": "${DB_USERNAME}"
+                                    },
+                                    {
+                                        "name": "POSTGRESQL_PASSWORD",
+                                        "value": "${DB_PASSWORD}"
+                                    },
+                                    {
+                                        "name": "POSTGRESQL_DATABASE",
+                                        "value": "${DB_DATABASE}"
+                                    },
+                                    {
+                                        "name": "TX_DATABASE_PREFIX_MAPPING",
+                                        "value": "${APPLICATION_NAME}-postgresql=POSTGRESQL"
+                                    },
+                                    {
+                                        "name": "POSTGRESQL_MIN_POOL_SIZE",
+                                        "value": "${DB_MIN_POOL_SIZE}"
+                                    },
+                                    {
+                                        "name": "POSTGRESQL_MAX_POOL_SIZE",
+                                        "value": "${DB_MAX_POOL_SIZE}"
+                                    },
+                                    {
+                                        "name": "POSTGRESQL_TX_ISOLATION",
+                                        "value": "${DB_TX_ISOLATION}"
+                                    },
+                                    {
                                         "name": "USERNAME",
                                         "value": "${USERNAME}"
                                     },
                                     {
                                         "name": "PASSWORD",
                                         "value": "${PASSWORD}"
-                                    },
-                                    {
-                                        "name": "ADMIN_USERNAME",
-                                        "value": "jdguser"
-                                    },
-                                    {
-                                        "name": "ADMIN_PASSWORD",
-                                        "value": "${PASSWORD}"
-                                    },
-                                    {
-                                        "name": "ADMIN_GROUP",
-                                        "value": "admin"
-                                    },
-                                    {
-                                        "name": "HOTROD_AUTHENTICATION",
-                                        "value": "${HOTROD_AUTHENTICATION}"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_CACHE_SECURITY_AUTHORIZATION_ENABLED",
-                                        "value": "${HOTROD_AUTHENTICATION}"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_CACHE_SECURITY_AUTHORIZATION_ROLES",
-                                        "value": "${CACHE_ROLES}"
-                                    },
-                                    {
-                                        "name": "CONTAINER_SECURITY_ROLE_MAPPER",
-                                        "value": "${CONTAINER_SECURITY_ROLE_MAPPER}"
-                                    },
-{
-                                        "name": "CONTAINER_SECURITY_ROLES",
-                                        "value": "${CONTAINER_SECURITY_ROLES}"
                                     },
                                     {
                                         "name": "OPENSHIFT_KUBE_PING_LABELS",
@@ -1069,8 +1058,16 @@
                                         "value": "string"
                                     },
                                     {
+                                        "name": "ADDRESSBOOK_CACHE_EVICTION_STRATEGY",
+                                        "value": "LRU"
+                                    },
+                                    {
+					"name": "ADDRESSBOOK_CACHE_EVICTION_MAX_ENTRIES",
+                                        "value": "100"
+                                    },
+                                    {
                                         "name": "ADDRESSBOOK_JDBC_STORE_DATASOURCE",
-                                        "value": "java:jboss/datasources/ExampleDS"
+                                        "value": "${DB_JNDI}"
                                     },
                                     {
                                         "name": "ADDRESSBOOK_KEYED_TABLE_PREFIX",
@@ -1082,83 +1079,11 @@
                                     },
                                     {
                                         "name": "ADDRESSBOOK_DATA_TYPE",
-                                        "value": "BINARY"
+                                        "value": "BYTEA"
                                     },
                                     {
                                         "name": "ADDRESSBOOK_TIMESTAMP_TYPE",
                                         "value": "BIGINT"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_STAGING_CACHE_START",
-                                        "value": "EAGER"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_STAGING_CACHE_INDEX",
-                                        "value": "ALL"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_STAGING_INDEXING_PROPERTIES",
-                                        "value": "default.directory_provider=ram"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_STAGING_LOCKING_ACQUIRE_TIMEOUT",
-                                        "value": "20000"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_STAGING_LOCKING_CONCURRENCY_LEVEL",
-                                        "value": "500"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_STAGING_LOCKING_STRIPING",
-                                        "value": "false"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_STAGING_JDBC_STORE_TYPE",
-                                        "value": "string"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_STAGING_JDBC_STORE_DATASOURCE",
-                                        "value": "java:jboss/datasources/ExampleDS"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_STAGING_KEYED_TABLE_PREFIX",
-                                        "value": "JDG"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_STAGING_ID_TYPE",
-                                        "value": "VARCHAR"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_STAGING_DATA_TYPE",
-                                        "value": "BINARY"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_STAGING_TIMESTAMP_TYPE",
-                                        "value": "BIGINT"
-                                    },
-                                     {
-                                        "name": "ADDRESSBOOK_ALIAS_CACHE_START",
-                                        "value": "EAGER"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_ALIAS_LOCKING_ACQUIRE_TIMEOUT",
-                                        "value": "20000"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_ALIAS_LOCKING_CONCURRENCY_LEVEL",
-                                        "value": "500"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_ALIAS_LOCKING_STRIPING",
-                                        "value": "false"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_ALIAS_JDBC_STORE_TYPE",
-                                        "value": "string"
-                                    },
-                                    {
-                                        "name": "ADDRESSBOOK_ALIAS_JDBC_STORE_DATASOURCE",
-                                        "value": "java:jboss/datasources/ExampleDS"
                                     }
                                 ]
                             }
