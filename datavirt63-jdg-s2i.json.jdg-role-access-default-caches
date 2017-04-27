@@ -216,7 +216,7 @@
         },
         {
             "name": "CACHE_ROLES",
-            "value": "admin,
+            "value": "admin",
             "required": false
         },
         {
