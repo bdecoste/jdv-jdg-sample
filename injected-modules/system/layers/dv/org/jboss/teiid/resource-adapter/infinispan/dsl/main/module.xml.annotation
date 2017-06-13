@@ -23,17 +23,17 @@
    	<module name="org.infinispan.client.hotrod" slot="jdg-7.1" optional="true" services="import"/>
         <module name="org.infinispan.protostream" slot="jdg-7.1"  optional="true" services="import" />
 
- 	<module name="org.infinispan.commons" slot="jdg-6.6" optional="true" services="import"/>
-   	<module name="org.infinispan.client.hotrod" slot="jdg-6.6" optional="true" services="import"/>
-    	<module name="org.infinispan.protostream" slot="jdg-6.6"  optional="true" services="import" />
+ 	<module name="org.infinispan.commons" slot="jdg-7.1" optional="true" services="import"/>
+   	<module name="org.infinispan.client.hotrod" slot="jdg-7.1" optional="true" services="import"/>
+    	<module name="org.infinispan.protostream" slot="jdg-7.1"  optional="true" services="import" />
     	
-    	<module name="org.infinispan.commons" slot="jdg-6.5" optional="true" services="import"/>
-	<module name="org.infinispan.client.hotrod" slot="jdg-6.5" optional="true" services="import"/>
-    	<module name="org.infinispan.protostream" slot="jdg-6.5"  optional="true" services="import" />
+    	<module name="org.infinispan.commons" slot="jdg-7.1" optional="true" services="import"/>
+	<module name="org.infinispan.client.hotrod" slot="jdg-7.1" optional="true" services="import"/>
+    	<module name="org.infinispan.protostream" slot="jdg-7.1"  optional="true" services="import" />
     	  	
-    	<module name="org.infinispan.commons" slot="jdg-6.4" optional="true" services="import"/>
-	<module name="org.infinispan.client.hotrod" slot="jdg-6.4" optional="true" services="import"/>
-    	<module name="org.infinispan.protostream" slot="jdg-6.4"  optional="true" services="import" />
+    	<module name="org.infinispan.commons" slot="jdg-7.1" optional="true" services="import"/>
+	<module name="org.infinispan.client.hotrod" slot="jdg-7.1" optional="true" services="import"/>
+    	<module name="org.infinispan.protostream" slot="jdg-7.1"  optional="true" services="import" />
     	
 
         <module name="org.jboss.remoting3"  />   
