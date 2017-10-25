@@ -482,7 +482,7 @@
                     "type": "Git",
                     "git": {
                         "uri": "http://github.com/bdecoste/jdv-jdg-sample",
-                        "ref": ""
+                        "ref": "jdv64-jdg71"
                     },
                     "contextDir": ""
                 },
