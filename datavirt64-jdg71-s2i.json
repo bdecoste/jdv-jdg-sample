@@ -42,7 +42,7 @@
         {
             "description": "Git branch/tag reference",
             "name": "SOURCE_REPOSITORY_REF",
-            "value": "master",
+            "value": "jdv64-jdg71",
             "required": false
         },
         {
@@ -187,19 +187,19 @@
         {
             "description": "User name for JDG user.",
             "name": "USERNAME",
-            "value": "",
+            "value": "jdguser",
             "required": false
         },
         {
             "description": "Password for JDG user.",
             "name": "PASSWORD",
-            "value": "",
+            "value": "Password1%",
             "required": false
         },
         {
             "description": "Enable HOTROD Auth",
             "name": "HOTROD_AUTHENTICATION",
-            "value": "",
+            "value": "true",
             "required": false
         },
         {
@@ -928,6 +928,22 @@
                                     {
                                         "name": "PASSWORD",
                                         "value": "${PASSWORD}"
+                                    },
+                                    {
+                                        "name": "ADMIN_GROUP",
+                                        "value": "REST,admin,___schema_manager"
+                                    },
+                                    {
+                                        "name": "HOTROD_AUTHENTICATION",
+                                        "value": "true"
+                                    },
+                                    {
+                                        "name": "CONTAINER_SECURITY_ROLE_MAPPER",
+                                        "value": "identity-role-mapper"
+                                    },
+                                    {
+                                        "name": "CONTAINER_SECURITY_ROLES",
+                                        "value": "admin=ALL,___schema_manager=ALL"
                                     },
                                     {
                                         "name": "OPENSHIFT_KUBE_PING_LABELS",
