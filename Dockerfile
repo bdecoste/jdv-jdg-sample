@@ -6,5 +6,3 @@ LABEL Name="jboss-jdv-6/jdv-jdg-sample" \
       Architecture="x86_64" 
 
 COPY injected-files /injected/injected-files
-COPY injected-modules /injected/injected-modules
-COPY install.sh /injected/install.sh
