@@ -9,6 +9,7 @@
     <dependencies>
         <module name="org.infinispan.client.hotrod" optional="true" slot="teiid" services="export"/>
    	<module name="org.infinispan.protostream" optional="true" slot="teiid" services="export"/>
+        <module name="org.infinispan.commons" optional="true" slot="teiid" services="export"/>
 
         <module name="org.jboss.teiid.resource-adapter.infinispan.dsl" export="true" />
     </dependencies>
