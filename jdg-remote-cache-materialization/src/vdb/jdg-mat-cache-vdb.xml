@@ -9,9 +9,9 @@
 	<source connection-jndi-name="java:/infinispanStockMat" name="infinispan" translator-name="ispn-override"/>
 
      <metadata type = "DDL"><![CDATA[
-            CREATE FOREIGN TABLE StockCache (product_id integer PRIMARY KEY, symbol string(10), price double, company_name string(100) ) OPTIONS(UPDATABLE true, "teiid_ispn:cache" 'stockCache');
+            CREATE FOREIGN TABLE StockCache (product_id integer PRIMARY KEY, symbol string(10), price double, company_name string(100) ) OPTIONS(UPDATABLE true, "teiid_ispn:cache" 'StockCache');
 
-           CREATE FOREIGN TABLE ST_StockCache (product_id integer PRIMARY KEY, symbol string(10), price double, company_name string(100) ) OPTIONS(UPDATABLE true, "teiid_ispn:cache" 'st_stockCache');
+           CREATE FOREIGN TABLE StockCache_staging (product_id integer PRIMARY KEY, symbol string(10), price double, company_name string(100) ) OPTIONS(UPDATABLE true, "teiid_ispn:cache" 'StockCache_staging');
 
         ]]>
        </metadata>
@@ -27,11 +27,11 @@ CREATE VIEW Stock (
 	symbol string,
 	price double,
 	company_name string) OPTIONS (MATERIALIZED 'TRUE', UPDATABLE 'TRUE',     
-MATERIALIZED_TABLE 'StockJDGSource.StockCache',
-"teiid_rel:MATERIALIZED_STAGE_TABLE" 'StockJDGSource.ST_StockCache',
+MATERIALIZED_TABLE 'StockJDGSource.STOCK',
+"teiid_rel:MATERIALIZED_STAGE_TABLE" 'StockJDGSource.StockCache_staging',
 "teiid_rel:ALLOW_MATVIEW_MANAGEMENT" 'TRUE',
-"teiid_rel:MATVIEW_BEFORE_LOAD_SCRIPT" 'execute StockJDGSource.native(''truncate StockJDGSource.ST_StockCache'');',
-"teiid_rel:MATVIEW_AFTER_LOAD_SCRIPT" 'execute StockJDGSource.native(''rename StockJDGSource.ST_StockCache StockJDGSource.StockCache'');',
+"teiid_rel:MATVIEW_BEFORE_LOAD_SCRIPT" 'execute StockJDGSource.native(''truncate StockJDGSource.StockCache_staging'');',
+"teiid_rel:MATVIEW_AFTER_LOAD_SCRIPT" 'execute StockJDGSource.native(''rename StockJDGSource.StockCache_staging StockJDGSource.StockCache'');',
 "teiid_rel:MATVIEW_STATUS_TABLE" 'Accounts.status',
 "teiid_rel:MATVIEW_TTL" 10000,
 "teiid_rel:MATVIEW_ONERROR_ACTION" 'WAIT')
