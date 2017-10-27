@@ -37,11 +37,11 @@
           will be in the form of <model name>.<table name>
         -->
         <property name="importer.useFullSchemaName" value="false"/>
- 
+           
          <!--
             This connector is defined to reference the H2 localDS" 
           -->
-        <source name="postgresql-connector" translator-name="translator-postgresql" connection-jndi-name="java:/accounts-ds"/>
+        <source name="h2-connector" translator-name="translator-h2" connection-jndi-name="java:/accounts-ds"/>
     </model>
     
    <model name="PersonalValuations">
@@ -110,7 +110,7 @@ CREATE FOREIGN TABLE Sheet1 (
    		</metadata>
 	</model>  
 	
-    <translator name="translator-postgresql" type="postgresql">
+    <translator name="translator-h2" type="h2">
         <property name="SupportsNativeQueries" value="true"/>
     </translator>
 
