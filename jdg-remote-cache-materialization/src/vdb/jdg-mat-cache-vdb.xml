@@ -27,7 +27,7 @@ CREATE VIEW Stock (
 	symbol string,
 	price double,
 	company_name string) OPTIONS (MATERIALIZED 'TRUE', UPDATABLE 'TRUE',     
-MATERIALIZED_TABLE 'StockJDGSource.STOCK',
+MATERIALIZED_TABLE 'StockJDGSource.StockCache',
 "teiid_rel:MATERIALIZED_STAGE_TABLE" 'StockJDGSource.StockCache_staging',
 "teiid_rel:ALLOW_MATVIEW_MANAGEMENT" 'TRUE',
 "teiid_rel:MATVIEW_BEFORE_LOAD_SCRIPT" 'execute StockJDGSource.native(''truncate StockJDGSource.StockCache_staging'');',
