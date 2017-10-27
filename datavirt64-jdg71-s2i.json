@@ -963,7 +963,7 @@
                                     },
                                     {
                                         "name": "CACHE_NAMES",
-                                        "value": "teiid-alias-naming-cache"
+                                        "value": "default,teiid-alias-naming-cache"
                                     },
                                     {
                                         "name": "ENCRYPTION_REQUIRE_SSL_CLIENT_AUTH",
