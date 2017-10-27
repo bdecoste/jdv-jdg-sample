@@ -6,7 +6,7 @@ CREATE TABLE status
   Name varchar(256) not null,
   TargetSchemaName varchar(50),
   TargetName varchar(256) not null,
-  Valid integer not null,
+  Valid boolean not null,
   LoadState varchar(25) not null,
   Cardinality bigint,
   Updated timestamp not null,
