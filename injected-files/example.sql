@@ -1,4 +1,3 @@
-
 CREATE TABLE status
 (
   VDBName varchar(50) not null,
@@ -7,11 +6,11 @@ CREATE TABLE status
   Name varchar(256) not null,
   TargetSchemaName varchar(50),
   TargetName varchar(256) not null,
-  Valid boolean not null,
+  Valid integer not null,
   LoadState varchar(25) not null,
-  Cardinality bigint,
+  Cardinality long,
   Updated timestamp not null,
-  LoadNumber bigint not null,
+  LoadNumber long not null,
   PRIMARY KEY (VDBName, VDBVersion, SchemaName, Name)
 );
 
@@ -68,12 +67,12 @@ CREATE TABLE  PRODUCT (
 
 CREATE TABLE  HOLDINGS
 (
-   TRANSACTION_ID SERIAL,
+   TRANSACTION_ID integer IDENTITY,
    ACCOUNT_ID integer,
    PRODUCT_ID integer,
    PURCHASE_DATE timestamp,
    SHARES_COUNT integer,
-   CONSTRAINT HOLDINGS_PK PRIMARY KEY(TRANSACTION_ID)
+   CONSTRAINT HOLDINGS_PK PRIMARY KEY (TRANSACTION_ID)
 );
 
 CREATE TABLE  HT_ProductInfo 
