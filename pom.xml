@@ -26,10 +26,10 @@
 	</licenses>
 
 	<modules>
-        <module>dynamicvdb-datafederation</module>
+        <!--module>dynamicvdb-datafederation</module>
 	<module>dynamicvdb-materialization</module>
         <module>jdg-remote-cache</module>
-        <module>jdg-remote-cache-materialization</module>
+        <module>jdg-remote-cache-materialization</module-->
 	</modules>
 
 	<properties>
